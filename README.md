@@ -1,0 +1,1 @@
+# PixelFegze-confitmation-d-achatCanon-USA-3680C002-RF-24-70-mm-F2.8-L-USM-
