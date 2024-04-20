@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <title>Confirmation d'Achat</title>
@@ -187,8 +187,23 @@
             font-size: 24px; /* Taille du texte */
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Police */
         }
+
+        .arrow-button {
+            color: rgba(0, 0, 0, 0.5);
+            background-color: transparent;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            margin: 0 5px;
+        }
+
+        .arrow-button:hover {
+            color: rgba(0, 0, 0, 0.8);
+        }
     </style>
-    <script src="https://www.paypal.com/sdk/js?client-id=AYV4Q5HSkqCiE2F_vEMfDHclMQKa_3DgEwUAMCcvzGpnUvYcK8kjiUVhCW-M8RlnYedjjyl8kalr-9Xv&currency=EUR"></script>
+    <script src="https://www.paypal.com/sdk/js?client-
+
+id=AYV4Q5HSkqCiE2F_vEMfDHclMQKa_3DgEwUAMCcvzGpnUvYcK8kjiUVhCW-M8RlnYedjjyl8kalr-9Xv&currency=EUR"></script>
 </head>
 <body>
 <div class="barre-navigation">
@@ -206,20 +221,54 @@
 
 <h1 style="color: #006400;">DÉCOUVREZ NOTRE PRODUIT PHARE</h1>
 
-<div class="conteneur-produit">
-    <div class="produit-detail">
-        <img src="https://m.media-amazon.com/images/I/61Re1yotStL._AC_SY355_.jpg" alt="Canon USA 3680C002 RF 24-70 mm F2.8 L USM" title="Canon USA 3680C002 RF 24-70 mm F2.8 L USM">
-        <h2>Canon USA 3680C002 RF 24-70 mm F2.8 L USM</h2>
-        <p class="product-description">Le Canon USA 3680C002 RF 24-70 mm F2.8 L USM est un objectif polyvalent conçu pour les photographes professionnels. Avec une ouverture maximale de f/2.8, il offre des performances exceptionnelles dans des conditions de faible luminosité. Sa plage de focales de 24-70 mm permet de capturer une grande variété de sujets, allant des paysages aux portraits. L'autofocus USM assure une mise au point rapide et précise, tandis que la construction optique de haute qualité garantit des images nettes et détaillées.</p>
-        <p class="prix">Prix du Produit : 2649,99€</p>
-        <button class="buy-button" onclick="showConfirmationMessage()">Ajouter au Panier</button>
-        <div class="security-icons">
-            <img src="https://via.placeholder.com/30" alt="Sécurité des paiements">
-            <span>Paiement sécurisé</span>
-        </div>
-        <p class="purchase-security">Achetez en toute sécurité grâce à notre système de paiement sécurisé. Nous protégeons vos informations personnelles.</p>
+<div class="produit-detail">
+    <button class="arrow-button" id="prev-button">&lt;</button>
+    <img id="product-image" src="https://m.media-amazon.com/images/I/61Re1yotStL._AC_SY355_.jpg" alt="Canon USA 
+
+3680C002 RF 24-70 mm F2.8 L USM" title="Canon USA 3680C002 RF 24-70 mm F2.8 L USM">
+    <button class="arrow-button" id="next-button">&gt;</button>
+    <h2>Canon USA 3680C002 RF 24-70 mm F2.8 L USM</h2>
+    <p class="product-description">Le Canon USA 3680C002 RF 24-70 mm F2.8 L USM est un objectif polyvalent conçu 
+
+pour les photographes professionnels. Avec une ouverture maximale de f/2.8, il offre des performances 
+
+exceptionnelles dans des conditions de faible luminosité. Sa plage de focales de 24-70 mm permet de capturer une 
+
+grande variété de sujets, allant des paysages aux portraits. L'autofocus USM assure une mise au point rapide et 
+
+précise, tandis que la construction optique de haute qualité garantit des images nettes et détaillées.</p>
+    <p class="prix">Prix du Produit : 2649,99€</p>
+    <button class="buy-button" onclick="showConfirmationMessage()">Ajouter au Panier</button>
+    <div class="security-icons">
+        <img src="https://via.placeholder.com/30" alt="Sécurité des paiements">
+        <span>Paiement sécurisé</span>
     </div>
+    <p class="purchase-security">Achetez en toute sécurité grâce à notre système de paiement sécurisé. Nous 
+
+protégeons vos informations personnelles.</p>
 </div>
+
+<script>
+    const images = [
+         "https://tse1.mm.bing.net/th?id=OIP.rQlJePiSwBLgZVi5npfKRQAAAA&pid=Api&P=0&h=180",
+        "https://tse1.mm.bing.net/th?id=OIP.7AXoZE1Lenh--F8Ext9lNgHaFV&pid=Api&P=0&h=180",
+        "https://tse2.mm.bing.net/th?id=OIP.hRX-DDwpnenEp4bnFu5GwgHaHa&pid=Api&P=0&h=180"
+        
+    ];
+    let currentImageIndex = 0;
+    const productImage = document.getElementById('product-image');
+
+    document.getElementById('prev-button').addEventListener('click', () => {
+        currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+        productImage.src = images[currentImageIndex];
+    });
+
+    document.getElementById('next-button').addEventListener('click', () => {
+        currentImageIndex = (currentImageIndex + 1) % images.length;
+        productImage.src = images[currentImageIndex];
+    });
+</script>
+
 
 <div class="overlay"></div>
 <div class="modal">
@@ -283,3 +332,4 @@
 </script>
 </body>
 </html>
+
